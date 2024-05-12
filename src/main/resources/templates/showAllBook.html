@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>显示所有书籍</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<script>
+    $(document).ready(function () {
+        $('a.btn-danger').on('click', function (e) {
+            // 阻止默认的链接点击行为
+            e.preventDefault();
+
+            // 获取链接的href属性（即要删除的URL）
+            var deleteUrl = $(this).attr('href');
+
+            // 弹出确认框
+            if (confirm('你确定要删除这本书吗？')) {
+                // 如果用户点击了"确定"，则执行删除操作
+                window.location.href = deleteUrl; // 重定向到删除URL
+            }
+        });
+    });
+</script>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">书籍信息管理系统</h3>
+    </div>
+</div>
+<form method="post" th:action="@{}">
+    <button class="btn btn-primary">用户管理</button>
+</form>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading rounded"><h3><span th:text="${title}"></span></h3></div>
+        <div class="panel-body">
+            <form th:action="@{queryBook}" th:object="${bookcond}" class="form-inline">
+                <div class="form-group mb-2">
+                    <label for="ID">书号</label>
+                    <input type="text" th:field="*{ID}" class="form-control" id="ID"/>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">书名</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="name"/>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="author">作者</label>
+                    <input type="text" th:field="*{author}" class="form-control" id="author"/>
+                </div>
+                <button type="submit" class="btn btn-primary">查询</button>
+                <a th:href="@{addbookpath}" class="btn btn-success">添加</a>
+            </form>
+            <div class="table table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody class="text-center">
+                    <tr>
+                        <td>书号</td>
+                        <td>书名</td>
+                        <td>作者</td>
+                        <td>价格</td>
+                        <td>出版时间</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr th:each="book:${booklist}">
+                        <td>
+                            <span th:text="${book.ID}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${book.name}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${book.author}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${book.price}"></span>
+                        </td><td>
+                            <span th:text="${book.publishtime}"></span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{findbook(id=${book.ID})}">编辑</a>
+                            <!--加上/ 重定向-->
+                            <a class="btn btn-danger" th:href="@{/deleteBook(id=${book.ID})}">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

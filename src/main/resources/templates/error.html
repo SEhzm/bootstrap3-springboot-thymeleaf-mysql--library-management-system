@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>错误结果</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}" />
+</head>
+<body>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">书籍信息管理系统</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">错误信息</h3>
+    </div>
+    <div>
+      <div class="panel-body">
+          <p th:text="${msg}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

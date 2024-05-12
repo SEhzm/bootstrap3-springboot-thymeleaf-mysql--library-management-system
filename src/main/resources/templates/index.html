@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>书籍信息管理系统</title>
+    <link th:href="@{css/login.css}" rel="stylesheet" type="text/css"/>
+    <link rel="jquery" th:href="@{js/jquery.min.js}"/>
+    <link rel="l" th:href="@{findAllBooks}"/>
+</head>
+
+<body>
+<div class="login_box">
+    <div class="login_l_img"><img th:src="@{picture/login-img.png}"/></div>
+    <div class="login">
+        <div class="login_logo"><a href="#"><img th:src="@{picture/login_logo.png}"/></a></div>
+        <div class="login_name">
+            <p>用户后台管理系统</p>
+        </div>
+        <form method="post" th:action="@{login}" th:object="${myUser}" id="loginForm">
+            <label for="ID"></label>
+            <input name="id" th:field="*{id}" type="text" value="学号" onfocus="this.value=''"
+                   onblur="if(this.value==''){this.value='学号'}" id="ID" required>
+            <span id="password_text"
+                  th:onclick="this.style.display='none';document.getElementById('password').style.display='block';document.getElementById('password').focus().select();">密码</span>
+            <label for="password"></label>
+            <input name="password" type="password" th:field="*{password}" id="password" style="display:none;"
+                   th:onblur="if(this.value==''){document.getElementById('password_text').style.display='block';this.style.display='none'};"
+                   required>
+            <input value="登录" style="width:100%;" type="submit" onclick="validateForm()" class="dl">
+        </form>
+    </div>
+    <div class="copyright">有限公司 版权所有©2020</div>
+</div>
+
+<!-- TODO 表单验证-->
+<script>
+    function validateForm() {
+        var Id = document.getElementById("ID").value;
+        var password = document.getElementById("password").value;
+        if (Id === "" || password === "") {
+            alert("学号和密码都不能留空");
+            return false;
+        }
+        document.querySelector('form').addEventListener('submit', validateForm);
+    }
+</script>
+<style>
+    .copyrights {
+        text-indent: -9999px;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
+        overflow: hidden;
+    }
+</style>
+</body>
+</html>

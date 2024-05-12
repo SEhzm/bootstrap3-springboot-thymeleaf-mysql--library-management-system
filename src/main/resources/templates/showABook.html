@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改书籍信息</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}" />
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">书籍信息管理系统</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span th:text="${title}"></span></h3>
+        </div>
+        <div class="panel-body">
+            <form th:object="${updatebook}" th:action="@{updatebook}">
+                <div class="form-group">
+                    <label for="ID">书号</label>
+                    <input type="text" th:field="*{ID}" class="form-control" id="ID" placeholder="ID">
+                </div>
+                <div class="form-group">
+                    <label for="name">书名</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="name" />
+                </div>
+                <div class="form-group">
+                    <label for="author">作者</label>
+                    <input type="text" th:field="*{author}" class="form-control" id="author">
+                </div>
+                <div class="form-group">
+                    <label for="price">价格</label>
+                    <input type="text" th:field="*{price}" class="form-control" id="price">
+                </div>
+                <div class="form-group">
+                    <label for="publishtime">出版时间</label>
+                    <input type="date" th:field="*{publishtime}" class="form-control" id="publishtime">
+                </div>
+                <button type="submit" class="btn btn-primary">修改</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
