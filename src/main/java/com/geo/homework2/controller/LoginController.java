@@ -16,6 +16,11 @@ public class LoginController {
     @Autowired
     private MyUserService myUserService;
 
+    @RequestMapping("/goToIndex")
+    public void goToIndex(MyUser myUser,Model model){
+        login(myUser,model);
+    }
+
     @RequestMapping("/")
     public String loginpath(Model model) {
         MyUser myUser = new MyUser();
@@ -32,7 +37,6 @@ public class LoginController {
             model.addAttribute("loginUser", e);
             return "showAllUser";
         } else {
-            myUser.setId("1");
             model.addAttribute("msg", "用户名或密码错误！");
             return "error";
         }

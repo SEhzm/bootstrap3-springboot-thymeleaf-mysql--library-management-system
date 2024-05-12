@@ -21,18 +21,15 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/")
-    public String loginpath(Model model) {
-        MyUser myUser = new MyUser();
+//    @RequestMapping("/")
+//    public String loginpath(Model model) {
+//        MyUser myUser = new MyUser();
+//
+//        model.addAttribute("myUser", myUser);
+//        return "index";
+//    }
 
-        model.addAttribute("myUser", myUser);
-        return "index";
-    }
 
-    @PostMapping("/goToIndex")
-    public String goToIndex(){
-        return "showAllUser";
-    }
 
     @GetMapping("/showAllBook")
     public String findAllBook(Model model) {
