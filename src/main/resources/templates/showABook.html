@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>修改书籍信息</title>
-    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
-    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}" />
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="panel panel-primary">
@@ -17,15 +18,15 @@
         <div class="panel-heading">
             <h3 class="panel-title"><span th:text="${title}"></span></h3>
         </div>
-        <div class="panel-body">
-            <form th:object="${updatebook}" th:action="@{updatebook}">
+        <div class="panel-body" >
+            <form id="updateForm" th:object="${updatebook}" th:action="@{updatebook}">
                 <div class="form-group">
                     <label for="ID">书号</label>
                     <input type="text" th:field="*{ID}" class="form-control" id="ID" placeholder="ID">
                 </div>
                 <div class="form-group">
                     <label for="name">书名</label>
-                    <input type="text" th:field="*{name}" class="form-control" id="name" />
+                    <input type="text" th:field="*{name}" class="form-control" id="name"/>
                 </div>
                 <div class="form-group">
                     <label for="author">作者</label>
@@ -44,5 +45,21 @@
         </div>
     </div>
 </div>
+<!--使用jQuery做表单验证-->
+<script>
+    document.getElementById('updateForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var id = document.getElementById('ID').value.trim();
+        var name = document.getElementById('name').value.trim();
+        var author = document.getElementById('author').value.trim();
+        var price = document.getElementById('price').value.trim();
+        var publishtime = document.getElementById('publishtime').value.trim();
+        if (id === '' || name === '' || author === '' || price === '' || publishtime === '') {
+            alert('表单不能为空！');
+        } else {
+            this.submit(); // 重新触发表单提交
+        }
+    });
+</script>
 </body>
 </html>
