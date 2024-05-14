@@ -89,7 +89,7 @@ public class BookController {
             findAllBook(model);
             return "showAllBook";
         }
-        model.addAttribute("msg", "添加不成功！");
+        model.addAttribute("msg", "添加不成功！已存在书号");
         return "error";
     }
 

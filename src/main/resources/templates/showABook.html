@@ -55,7 +55,7 @@
         var price = document.getElementById('price').value.trim();
         var publishtime = document.getElementById('publishtime').value.trim();
         if (id === '' || name === '' || author === '' || price === '' || publishtime === '') {
-            alert('表单不能为空！');
+            alert('表单不能为空！请输入完整书籍信息');
         } else {
             this.submit(); // 重新触发表单提交
         }
