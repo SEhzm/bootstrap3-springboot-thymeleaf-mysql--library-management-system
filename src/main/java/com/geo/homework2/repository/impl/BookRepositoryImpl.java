@@ -80,15 +80,15 @@ public class BookRepositoryImpl implements BookRepository {
         StringBuilder sqlBuilder = new StringBuilder("select * from book where 1=1");
         List<Object> args = new ArrayList<>();
 
-        if(StringUtils.isNotBlank(book.getID())){
+        if (StringUtils.isNotBlank(book.getID())) {
             sqlBuilder.append(" and id = ?");
             args.add(book.getID());
         }
-        if(StringUtils.isNotBlank(book.getName())){ // 使用StringUtils来检查空字符串
+        if (StringUtils.isNotBlank(book.getName())) { // 使用StringUtils来检查空字符串
             sqlBuilder.append(" and name = ?");
             args.add(book.getName());
         }
-        if(StringUtils.isNotBlank(book.getAuthor())){ // 同样，这里也使用StringUtils
+        if (StringUtils.isNotBlank(book.getAuthor())) {
             sqlBuilder.append(" and author = ?");
             args.add(book.getAuthor());
         }

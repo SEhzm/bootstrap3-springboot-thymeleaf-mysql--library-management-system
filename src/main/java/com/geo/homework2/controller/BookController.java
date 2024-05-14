@@ -2,9 +2,7 @@ package com.geo.homework2.controller;
 
 
 import com.geo.homework2.pojo.Book;
-import com.geo.homework2.pojo.MyUser;
 import com.geo.homework2.service.BookService;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +18,6 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
-
-//    @RequestMapping("/")
-//    public String loginpath(Model model) {
-//        MyUser myUser = new MyUser();
-//
-//        model.addAttribute("myUser", myUser);
-//        return "index";
-//    }
-
 
 
     @GetMapping("/showAllBook")
