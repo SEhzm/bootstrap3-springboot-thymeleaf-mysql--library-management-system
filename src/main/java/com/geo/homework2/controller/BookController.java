@@ -23,7 +23,7 @@ public class BookController {
     @GetMapping("/showAllBook")
     public String findAllBook(Model model) {
         model.addAttribute("bookcond", new Book());
-        model.addAttribute("title", "所有的用户书籍");
+        model.addAttribute("title", "所有的书籍");
         List<Book> booklist = bookService.findAllBook(model);
         model.addAttribute("booklist", booklist);
         return "showAllBook";
