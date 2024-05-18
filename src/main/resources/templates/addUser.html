@@ -18,23 +18,37 @@
       <h3 class="panel-title"><span th:text="${title}"></span></h3>
     </div>
     <div class="panel-body">
-      <form th:object="${adduser}" th:action="@{adduser}">
+      <form th:object="${adduser}" th:action="@{adduser}" id="updateForm">
         <div class="form-group">
-          <label for="user_name">ID学号</label>
+          <label for="ID">ID学号</label>
           <input type="text" th:field="*{id}" class="form-control" id="ID" />
         </div>
         <div class="form-group">
-          <label for="user_name">姓名</label>
-          <input type="text" th:field="*{username}" class="form-control" id="user_name" />
+          <label for="username">姓名</label>
+          <input type="text" th:field="*{username}" class="form-control" id="username" />
         </div>
         <div class="form-group">
-          <label for="user_password">密码</label>
-          <input type="text" th:field="*{password}" class="form-control" id="user_password">
+          <label for="password">密码</label>
+          <input type="text" th:field="*{password}" class="form-control" id="password">
         </div>
         <button type="submit" class="btn btn-primary">添加</button>
       </form>
     </div>
   </div>
 </div>
+<script>
+  <!--使用jQuery做表单验证-->
+  document.getElementById('updateForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var id = document.getElementById('ID').value.trim();
+    var username = document.getElementById('username').value.trim();
+    var password = document.getElementById('password').value.trim();
+    if (id === '' || username === '' || password === '') {
+      alert('表单不能有一项为空！请输入完整书籍信息');
+    } else {
+      this.submit(); // 重新触发表单提交
+    }
+  });
+</script>
 </body>
 </html>

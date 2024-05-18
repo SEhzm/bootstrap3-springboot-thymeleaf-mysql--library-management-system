@@ -7,7 +7,7 @@ import java.util.List;
 public interface MyUserRepository {
     public int saveUser(MyUser myUser);
 
-    public int deleteUser(Integer id);
+    public int deleteUser(String id);
 
     public int updateUser(MyUser myUser);
 

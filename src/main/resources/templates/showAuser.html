@@ -37,5 +37,19 @@
         </div>
     </div>
 </div>
+<!--使用jQuery做表单验证-->
+<script>
+    document.getElementById('updateForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var id = document.getElementById('userid').value.trim();
+        var name = document.getElementById('user_name').value.trim();
+        var author = document.getElementById('user_password').value.trim();
+        if (id === '' || name === '' || author === '' ) {
+            alert('表单不能为空！请输入完整书籍信息');
+        } else {
+            this.submit(); // 重新触发表单提交
+        }
+    });
+</script>
 </body>
 </html>

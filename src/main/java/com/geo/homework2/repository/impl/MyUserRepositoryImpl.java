@@ -32,10 +32,10 @@ public class MyUserRepositoryImpl implements MyUserRepository {
     }
 
     @Override
-    public int deleteUser(Integer id) {
+    public int deleteUser(String id) {
         String sql = "delete from book where id = ? ";
         Object args[] = {
-                id
+                "id"
         };
         return jdbcTemplate.update(sql, args);
     }

@@ -20,7 +20,7 @@ public class MyUserServiceImpl implements MyUserService {
     }
 
     @Override
-    public int deleteUser(Integer id) {
+    public int deleteUser(String id) {
         return myUserRepository.deleteUser(id);
     }
 
@@ -40,6 +40,10 @@ public class MyUserServiceImpl implements MyUserService {
     }
 
     @Override
+    public MyUser login(MyUser myUser) {
+        return myUserRepository.findUserByNameandPawd(myUser);
+    }
+    @Override
     public int[] batchInsert(List<Object[]> myArgs) {
         return myUserRepository.batchInsert(myArgs);
     }
@@ -47,11 +51,6 @@ public class MyUserServiceImpl implements MyUserService {
     @Override
     public String getNamebyId(Integer id) {
        return myUserRepository.getName(id);
-    }
-
-    @Override
-    public MyUser login(MyUser myUser) {
-        return myUserRepository.findUserByNameandPawd(myUser);
     }
 
     @Override

@@ -67,10 +67,10 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public int deleteBook(int id) {
+    public int deleteBook(String id) {
         String sql = "delete from book where id = ? ";
         Object args[] = {
-                id
+                "id"
         };
         return jdbcTemplate.update(sql, args);
     }

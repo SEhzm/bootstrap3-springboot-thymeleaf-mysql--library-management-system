@@ -15,7 +15,7 @@ public interface BookRepository {
 
     int saveBook(Book book);
 
-    int deleteBook(int id);
+    int deleteBook(String id);
 
     List<Book> findBooksByCondtion(Book book);
 }

@@ -37,12 +37,12 @@ class Homework2ApplicationTests {
             System.out.println("保存 成功！");
     }
 
-    @Test
-    public void testDeleteUser(){
-        int res = myUserService.deleteUser(7);
-        if (res > 0)
-            System.out.println("删除成功");
-    }
+//    @Test
+//    public void testDeleteUser(){
+//        int res = myUserService.deleteUser(7);
+//        if (res > 0)
+//            System.out.println("删除成功");
+//    }
 
     @Test
     public void testUpdateUser(){

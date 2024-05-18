@@ -16,5 +16,4 @@ public class Book {
     private String author;  //作者
     private Double price;
     private Date publishtime; //出版时间
-
 }

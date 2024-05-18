@@ -7,7 +7,7 @@ import java.util.List;
 public interface MyUserService {
     public int saveUser(MyUser myUser);
 
-    public int deleteUser(Integer id);
+    public int deleteUser(String id);
 
     public int updateUser(MyUser myUser);
 
@@ -15,13 +15,13 @@ public interface MyUserService {
 
     public MyUser findUserById(Integer id);
 
-    public int[] batchInsert(List<Object[]> myArgs);
-
     public String getNamebyId(Integer id);
 
     public MyUser login(MyUser myUser);
 
     public long getTotal();
+
+    public int[] batchInsert(List<Object[]> myArgs);
 
     public List<MyUser> findUsersByCondtion(MyUser myUser);
 }

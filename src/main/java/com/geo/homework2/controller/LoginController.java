@@ -87,7 +87,7 @@ public class LoginController {
     }
 
     @RequestMapping("/delete")
-    public String deleteUser(int id, Model model) {
+    public String deleteUser(String id, Model model) {
         int res = myUserService.deleteUser(id);
         if (res > 0) {
             findAllUsers(model);

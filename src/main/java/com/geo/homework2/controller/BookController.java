@@ -83,7 +83,7 @@ public class BookController {
     }
 
     @RequestMapping("/deleteBook")
-    public String deleteBook(int id, Model model) {
+    public String deleteBook(String id, Model model) {
         int res = bookService.deleteBook(id);
         if (res > 0) {
             findAllBook(model);
