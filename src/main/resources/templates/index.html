@@ -10,14 +10,13 @@
     <link rel="jquery" th:href="@{js/jquery.min.js}"/>
     <link rel="l" th:href="@{findAllBooks}"/>
 </head>
-
 <body>
 <div class="login_box">
     <div class="login_l_img"><img th:src="@{picture/login-img.png}"/></div>
     <div class="login">
         <div class="login_logo"><a href="#"><img th:src="@{picture/login_logo.png}"/></a></div>
         <div class="login_name">
-            <p>用户后台管理系统</p>
+            <p>图书管理系统用户后台管理</p>
         </div>
         <form method="post" th:action="@{login}" th:object="${myUser}" id="loginForm">
             <label for="ID"></label>
@@ -32,7 +31,7 @@
             <input value="登录" style="width:100%;" type="submit" onclick="validateForm()" class="dl">
         </form>
     </div>
-    <div class="copyright">有限公司 版权所有©2020</div>
+    <div class="copyright">421144050216何梓铭版权所有©2024</div>
 </div>
 
 <!-- TODO 表单验证-->

@@ -42,7 +42,7 @@ public class MyUserRepositoryImpl implements MyUserRepository {
 
     @Override
     public int updateUser(MyUser myUser) {
-        String sql = "update user set use rname = ?, password = ? where id = ? ";
+        String sql = "update user set username = ?, password = ? where id = ? ";
         Object args[] = {
                 myUser.getUsername(),
                 myUser.getPassword(),
